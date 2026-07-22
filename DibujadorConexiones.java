@@ -1,18 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package vista;
 
 import modelo.Bloque;
 import modelo.Conexion;
 import java.awt.*;
-
-/**
- *
- * @author USUARIO
- */
-
 
 public class DibujadorConexiones {
 
@@ -20,23 +10,19 @@ public class DibujadorConexiones {
         Bloque o = con.getOrigen();
         Bloque d = con.getDestino();
 
-        // Puntos centrales de origen y destino
         int x1 = o.getX() + o.getAncho() / 2;
         int y1 = o.getY() + o.getAlto() / 2;
         int x2 = d.getX() + d.getAncho() / 2;
         int y2 = d.getY() + d.getAlto() / 2;
 
-        // Dibujar línea principal
         g2.setColor(Color.BLACK);
         g2.setStroke(new BasicStroke(2));
         g2.drawLine(x1, y1, x2, y2);
 
-        // Dibujar punta de flecha en el centro de la línea
         int mx = (x1 + x2) / 2;
         int my = (y1 + y2) / 2;
         dibujarFlecha(g2, x1, y1, x2, y2, mx, my);
 
-        // Dibujar texto de condición (si existe)
         if (con.getCondicion() != null && !con.getCondicion().isEmpty()) {
             g2.setColor(new Color(0, 102, 204));
             g2.drawString(con.getCondicion(), mx + 10, my - 5);
