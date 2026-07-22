@@ -1,18 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import modelo.Bloque;
 import modelo.Conexion;
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- *
- * @author USUARIO
- */
 
 public class ValidadorDiagrama {
 
@@ -26,7 +17,6 @@ public class ValidadorDiagrama {
         if (inicios != 1) errores.add("Debe haber exactamente un bloque de 'Inicio'.");
         if (fines < 1) errores.add("Debe haber al menos un bloque de 'Fin'.");
 
-        // Validar bloques desconectados (flotantes)
         for (Bloque b : bloques) {
             boolean tieneConexion = conexiones.stream().anyMatch(c -> c.getOrigen() == b || c.getDestino() == b);
             if (!tieneConexion && bloques.size() > 1) {
