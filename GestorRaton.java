@@ -1,19 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package vista;
 
 import modelo.Bloque;
 import javax.swing.*;
 import java.awt.Point;
 import java.awt.event.*;
-
-/**
- *
- * @author USUARIO
- */
-
 
 public class GestorRaton extends MouseAdapter {
     private final PanelDiagrama panel;
@@ -36,8 +26,7 @@ public class GestorRaton extends MouseAdapter {
                 break;
             }
         }
-
-        // --- AGREGADO POR INTEGRANTE 2 (MODO CONECTAR) ---
+        
         if (panel.isModoConectar() && bloqueClickeado != null) {
             if (panel.getPrimerBloqueConexion() == null) {
                 panel.setPrimerBloqueConexion(bloqueClickeado);
@@ -60,7 +49,6 @@ public class GestorRaton extends MouseAdapter {
             }
             return;
         }
-        // --------------------------------------------------
 
         panel.setBloqueSeleccionado(bloqueClickeado);
 
@@ -101,7 +89,6 @@ public class GestorRaton extends MouseAdapter {
         }
     }
 
-    // Menú flotante que aparece al hacer clic derecho sobre un bloque
     private void mostrarMenuEmergente(MouseEvent e, Bloque bloque) {
         JPopupMenu menu = new JPopupMenu();
         JMenuItem itemEliminar = new JMenuItem("Eliminar bloque");
