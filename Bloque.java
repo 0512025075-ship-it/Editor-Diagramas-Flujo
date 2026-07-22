@@ -1,19 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
 import java.io.Serializable;
 
-/**
- *
- * @author USUARIO
- */
 public class Bloque implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    // Enumerador para distinguir el propósito de cada bloque
     public enum Tipo { 
         INICIO, PROCESO, DECISION, SALIDA, FIN 
     }
@@ -32,8 +23,7 @@ public class Bloque implements Serializable {
         this.x = x;
         this.y = y;
     }
-
-    // Getters y Setters para que tus compañeros puedan interactuar con tus bloques
+    
     public String getId() { return id; }
     public Tipo getTipo() { return tipo; }
     public String getTexto() { return texto; }
@@ -45,10 +35,6 @@ public class Bloque implements Serializable {
     public int getAncho() { return ancho; }
     public int getAlto() { return alto; }
 
-    /**
-     * Verifica si el puntero del mouse hizo clic dentro de los límites de este bloque.
-     * Esencial para el arrastre (Drag and Drop).
-     */
     public boolean contienePunto(int px, int py) {
         return px >= x && px <= x + ancho && py >= y && py <= y + alto;
     }
