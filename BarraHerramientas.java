@@ -77,7 +77,6 @@ public class BarraHerramientas extends JPanel {
 
         JButton btnPseudocodigo = new JButton("Generar Pseudocódigo");
         btnPseudocodigo.addActionListener(e -> {
-            // Primero se valida para evitar pseudocódigo inconsistente
             var errores = controlador.ValidadorDiagrama.validar(panel.getBloques(), panel.getConexiones());
             if (!errores.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No se puede generar pseudocódigo:\n" + String.join("\n", errores), "Error de Estructura", JOptionPane.WARNING_MESSAGE);
@@ -116,7 +115,6 @@ public class BarraHerramientas extends JPanel {
             String texto = JOptionPane.showInputDialog(this, "Texto del bloque:", nombre);
             if (texto != null && !texto.trim().isEmpty()) {
                 contador++;
-                // Los creamos un poco desplazados para que no queden exactamente encima uno del otro
                 int offset = (contador % 5) * 15; 
                 panel.agregarBloque(new Bloque("B" + contador, tipo, texto, 100 + offset, 100 + offset));
             }
