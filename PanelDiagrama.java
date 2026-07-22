@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package vista;
 
 import modelo.Bloque;
@@ -9,20 +5,13 @@ import javax.swing.JPanel;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author USUARIO
- */
-
 
 public class PanelDiagrama extends JPanel {
     private List<Bloque> bloques = new ArrayList<>();
-    // --- AGREGADO POR INTEGRANTE 2 ---
     private java.util.List<modelo.Conexion> conexiones = new java.util.ArrayList<>();
     private boolean modoConectar = false;
     private Bloque primerBloqueConexion = null;
-    // ---------------------------------
-    private Bloque bloqueSeleccionado = null; // Guarda el bloque actualmente seleccionado
+    private Bloque bloqueSeleccionado = null; 
 
     public PanelDiagrama() {
         setBackground(Color.WHITE);
@@ -67,13 +56,10 @@ public class PanelDiagrama extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         
-        // --- AGREGADO POR INTEGRANTE 2 (Dibujar flechas primero) ---
         for (modelo.Conexion con : conexiones) {
             DibujadorConexiones.dibujar(g2, con);
         }
-        // -----------------------------------------------------------
-
-        // Tu código de pintar bloques que ya tenías:
+        
         for (Bloque b : bloques) {
             DibujadorBloques.dibujar(g2, b);
             if (b == getBloqueSeleccionado()) {
@@ -84,7 +70,6 @@ public class PanelDiagrama extends JPanel {
         }
     }
     
-    // --- AGREGADO POR INTEGRANTE 2 ---
     public void agregarConexion(Bloque origen, Bloque destino, String condicion) {
         conexiones.add(new modelo.Conexion(origen, destino, condicion));
         repaint();
@@ -101,7 +86,6 @@ public class PanelDiagrama extends JPanel {
 
     public Bloque getPrimerBloqueConexion() { return primerBloqueConexion; }
     public void setPrimerBloqueConexion(Bloque b) { this.primerBloqueConexion = b; }
-    // ---------------------------------
     
     
 }
