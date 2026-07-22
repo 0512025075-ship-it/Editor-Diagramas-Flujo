@@ -1,22 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
 import java.io.Serializable;
-
-/**
- *
- * @author USUARIO
- */
 
 public class Conexion implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private final Bloque origen;
     private final Bloque destino;
-    private String condicion; // Ej: "Sí" o "No"
+    private String condicion; 
 
     public Conexion(Bloque origen, Bloque destino, String condicion) {
         this.origen = origen;
