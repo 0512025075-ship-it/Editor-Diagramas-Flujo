@@ -30,12 +30,32 @@ public class DibujadorConexiones {
     }
 
     private static void dibujarFlecha(Graphics2D g2, int x1, int y1, int x2, int y2, int px, int py) {
-        double angulo = Math.atan2(y2 - y1, x2 - x1);
-        int tamaño = 10;
-        Polygon punta = new Polygon();
-        punta.addPoint(px, py);}
-        punta.addPoint((int) (px - tamaño * Math.cos(angulo - Math.PI/6)), (int) (py - tamaño * Math.sin(angulo - Math.PI/6)));
-        punta.addPoint((int) (px - tamaño * Math.cos(angulo + Math.PI/6)), (int) (py - tamaño * Math.sin(angulo + Math.PI/6)));
-        g2.fillPolygon(punta);
+    double dx = x2 - x1;
+    double dy = y2 - y1;
+    double largoLinea = Math.hypot(dx, dy); 
+    
+    if (largoLinea == 0) return; 
+
+    double ux = dx / largoLinea;
+    double uy = dy / largoLinea;
+
+    double vx = -uy;
+    double vy = ux;
+
+    int largoPunta = 10; 
+    int anchoPunta = 5; 
+    
+    int xAla1 = (int) (px - largoPunta * ux + anchoPunta * vx);
+    int yAla1 = (int) (py - largoPunta * uy + anchoPunta * vy);
+
+    int xAla2 = (int) (px - largoPunta * ux - anchoPunta * vx);
+    int yAla2 = (int) (py - largoPunta * uy - anchoPunta * vy);
+
+    Polygon punta = new Polygon();
+    punta.addPoint(px, py);
+    punta.addPoint(xAla1, yAla1);
+    punta.addPoint(xAla2, yAla2);
+
+    g2.fillPolygon(punta);
     }
 }
