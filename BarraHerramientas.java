@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package vista;
 
 import modelo.Bloque;
@@ -10,11 +5,6 @@ import javax.swing.*;
 import java.awt.FlowLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-/**
- *
- * @author USUARIO
- */
-
 
 public class BarraHerramientas extends JPanel {
     private int contador = 0;
@@ -29,10 +19,8 @@ public class BarraHerramientas extends JPanel {
         crearBoton("Salida", Bloque.Tipo.SALIDA, panel);
         crearBoton("Fin", Bloque.Tipo.FIN, panel);
         
-        // Agregar un pequeño separador visual
         add(new JToolBar.Separator());
 
-        // --- AGREGADO POR INTEGRANTE 2 (BOTONES EN LA BARRA) ---
         JButton btnEnlazar = new JButton("Enlazar Flujo");
         btnEnlazar.addActionListener(e -> {
             if (panel.getBloques().size() < 2) {
@@ -55,11 +43,8 @@ public class BarraHerramientas extends JPanel {
             }
         });
         add(btnValidar);
-        // -------------------------------------------------------
-        // Agregar otro pequeño separador visual
         add(new JToolBar.Separator());
 
-        // --- AGREGADO POR INTEGRANTE 3 (GUARDAR Y CARGAR) ---
         JButton btnGuardar = new JButton("Guardar Proyecto");
         btnGuardar.addActionListener(e -> {
             JFileChooser fc = new JFileChooser();
@@ -90,7 +75,6 @@ public class BarraHerramientas extends JPanel {
         });
         add(btnCargar);
 
-        // --- AGREGADO POR INTEGRANTE 3 (GENERACIÓN DE RESULTADO) ---
         JButton btnPseudocodigo = new JButton("Generar Pseudocódigo");
         btnPseudocodigo.addActionListener(e -> {
             // Primero se valida para evitar pseudocódigo inconsistente
@@ -100,7 +84,6 @@ public class BarraHerramientas extends JPanel {
                 return;
             }
 
-            // Generar y mostrar en un cuadro de diálogo con área de texto para que se pueda copiar
             String pseudocodigo = controlador.GeneradorPseudocodigo.generar(panel.getBloques(), panel.getConexiones());
             JTextArea areaTexto = new JTextArea(pseudocodigo);
             areaTexto.setEditable(false);
@@ -111,10 +94,7 @@ public class BarraHerramientas extends JPanel {
             JOptionPane.showMessageDialog(this, scroll, "Pseudocódigo Generado", JOptionPane.INFORMATION_MESSAGE);
         });
         add(btnPseudocodigo);
-        // -----------------------------------------------------------
-        
-
-        // Botón especial para corregir/limpiar todo el lienzo
+       
         JSeparator separador = new JSeparator(JSeparator.VERTICAL);
         add(separador);
 
