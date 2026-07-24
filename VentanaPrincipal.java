@@ -1,3 +1,4 @@
+//Es el contenedor raíz (JFrame) que inicia y ensambla la aplicación.
 package vista;
 
 import javax.swing.*;
