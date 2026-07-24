@@ -47,6 +47,7 @@ public class BarraHerramientas extends JPanel {
         add(btnValidar);
         add(new JToolBar.Separator());
 
+        //Hilos
         JButton btnEjecutar = new JButton("Ejecutar Diagrama");
         btnEjecutar.addActionListener(e -> {
             // Validar errores antes de correr
