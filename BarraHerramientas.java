@@ -1,6 +1,7 @@
 //Proporciona un menú de botones contextuales en la parte superior.
 package vista;
 
+import controlador.TareaEjecutarDiagrama;
 import modelo.Bloque;
 import javax.swing.*;
 import java.awt.FlowLayout;
@@ -46,6 +47,32 @@ public class BarraHerramientas extends JPanel {
         add(btnValidar);
         add(new JToolBar.Separator());
 
+        JButton btnEjecutar = new JButton("Ejecutar Diagrama");
+        btnEjecutar.addActionListener(e -> {
+            // Validar errores antes de correr
+            var errores = controlador.ValidadorDiagrama.validar(panel.getBloques(), panel.getConexiones());
+            if (!errores.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Corrige los errores antes de ejecutar:\n" + String.join("\n", errores), "Error", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // 1. Deshabilitar botón para evitar múltiples hilos
+            btnEjecutar.setEnabled(false);
+
+            // 2. Crear la tarea ejecutable
+            TareaEjecutarDiagrama tarea = new TareaEjecutarDiagrama(
+                panel.getBloques(), 
+                panel.getConexiones(), 
+                panel, 
+                btnEjecutar
+            );
+
+            // 3. Crear el Hilo e Iniciar con start()
+            Thread hilo = new Thread(tarea);
+            hilo.start();
+        });
+        add(btnEjecutar);
+        
         JButton btnGuardar = new JButton("Guardar Proyecto");
         btnGuardar.addActionListener(e -> {
             JFileChooser fc = new JFileChooser();
