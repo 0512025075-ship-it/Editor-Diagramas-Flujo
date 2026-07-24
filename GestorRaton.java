@@ -1,3 +1,4 @@
+//Controla toda la interactividad mediante eventos de ratón.
 package vista;
 
 import modelo.Bloque;
