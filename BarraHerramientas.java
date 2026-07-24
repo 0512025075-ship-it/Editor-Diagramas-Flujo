@@ -1,3 +1,4 @@
+//Proporciona un menú de botones contextuales en la parte superior.
 package vista;
 
 import modelo.Bloque;
