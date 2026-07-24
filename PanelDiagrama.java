@@ -1,3 +1,4 @@
+//Es el lienzo principal (JPanel) sobre el que se dibuja el diagrama.
 package vista;
 
 import modelo.Bloque;
