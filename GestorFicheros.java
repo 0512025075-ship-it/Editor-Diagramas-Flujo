@@ -1,3 +1,4 @@
+//Ofrece persistencia de datos local para guardar y recuperar proyectos completos.
 package controlador;
 
 import modelo.Bloque;
