@@ -1,3 +1,4 @@
+//Traduce el diagrama visual en un algoritmo escrito en texto plano.
 package controlador;
 
 import modelo.Bloque;
