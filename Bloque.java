@@ -1,3 +1,4 @@
+//Representa la entidad individual de cada nodo o figura dentro del diagrama de flujo.
 package modelo;
 
 import java.io.Serializable;
