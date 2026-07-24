@@ -1,3 +1,4 @@
+//Clase utilitaria dedicada al renderizado de las líneas y puntas de flechas.
 package vista;
 
 import modelo.Bloque;
