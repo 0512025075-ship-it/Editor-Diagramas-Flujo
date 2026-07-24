@@ -1,3 +1,4 @@
+//Evalúa si el diagrama construido cumple con las reglas formales de la lógica de programación.
 package controlador;
 
 import modelo.Bloque;
