@@ -1,3 +1,4 @@
+Clase utilitaria dedicada al renderizado de las figuras geométricas de cada bloque.
 package vista;
 
 import modelo.Bloque;
