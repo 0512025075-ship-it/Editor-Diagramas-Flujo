@@ -1,3 +1,4 @@
+//Define las relaciones/enlaces dirigidos entre un bloque de origen y uno de destino.
 package modelo;
 
 import java.io.Serializable;
